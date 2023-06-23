@@ -12,8 +12,7 @@ $blacklists = [
     "https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt",
     "https://v.firebog.net/hosts/Easyprivacy.txt",
     "https://raw.githubusercontent.com/shreyasminocha/shady-hosts/main/hosts",
-    "https://v.firebog.net/hosts/static/w3kbl.txt",
-    "https://raw.githubusercontent.com/kboghdady/youTube_ads_4_pi-hole/master/youtubelist.txt"
+    "https://v.firebog.net/hosts/static/w3kbl.txt"
 ];
 
 $whitelist = [

@@ -8,17 +8,36 @@ Works with PiHole and Adguard Home.
 ## Table of content
 - [hostfile-merge](#hostfile-merge)
   - [Table of content](#table-of-content)
-  - [Requirements](#requirements)
-  - [Install & Usage](#install--usage)
+  - [Install \& Usage](#install--usage)
+    - [Use GitHub actions](#use-github-actions)
+    - [Docker](#docker)
+    - [PHP and Apache](#php-and-apache)
   - [Credits](#credits)
   - [Repository summary](#repository-summary)
   - [License](#license)
 
-## Requirements
-- PHP (I tested with PHP 7.4)
-- Apache (or NGINX) webserver
-
 ## Install & Usage
+
+### Use GitHub actions
+No documentation for this method. See ```.github/workflows/main.yml``` for the details
+
+### Docker
+1. Edit ```Cron.php``` and ad you're lists to the array.
+    Example:
+    ```php
+    $blacklists = [
+        __DIR__ . "/custom_blacklist.txt",
+        "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
+        "https://adaway.org/hosts.txt",
+    ];
+
+    $whitelist = [
+        __DIR__ . "/custom_whitelist.txt"
+    ];
+    ```
+2. run ```docker-compose up -d```
+
+### PHP and Apache
 1. Clone or download the repo to a publicly accessible place like a Apache or NGINX webserver with PHP installed.
 2. Edit ```Cron.php``` and ad you're lists to the array.
     Example:
@@ -63,7 +82,7 @@ This project is licensed under the [MIT License](https://github.com/Bastiaantjuh
 
 > MIT License
 > 
-> Copyright (c) 2022 Bastiaan de Hart
+> Copyright (c) 2024 Bastiaan de Hart
 > 
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the

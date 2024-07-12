@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+
+  ofelia:
+    image: mcuadros/ofelia:latest
+    depends_on:
+      - php
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  php:
+    image: php:fpm-bullseye
+    container_name: php
+    volumes:
+      - ./:/var/www/html
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.datecron.schedule: "@every 5m"
+      ofelia.job-exec.datecron.command: "php /var/www/html/cron.php"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8084:80"
+    volumes:
+      - ./hostfiles:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf

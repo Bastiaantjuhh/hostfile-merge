@@ -21,12 +21,12 @@ $whitelist = [
 ];
 
 // Ignoring SSL errors because one of my lists had an expired Cert.
-$ignoreSSL = array(
-    "ssl" => array(
+$ignoreSSL = [
+    "ssl" => [
         "verify_peer" => false,
         "verify_peer_name" => false,
-    )
-); 
+    ]
+]; 
 
 $fileHeader = "# Last modified at " . date("Y-m-d h:i:s") . PHP_EOL . PHP_EOL;
 
